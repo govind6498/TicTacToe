@@ -26,8 +26,19 @@ public class TicTacToe {
 	}
 	static void showBoard() {
 		System.out.println(" "+board[1]+" | "+board[2]+" | "+board[3]+" | ");
+		System.out.println("-----------------");
 		System.out.println(" "+board[4]+" | "+board[5]+" | "+board[6]+" | ");
+		System.out.println("-----------------");
 		System.out.println(" "+board[7]+" | "+board[8]+" | "+board[9]+" | ");
+	}
+	public static boolean userMove(int userInput) {
+		if(board[userInput]!= 'X' && board[userInput]!='O') {
+			System.out.println("Cell is free");
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 		public static void userMove() {
 			System.out.println("Enter the index where you want to make your move:(1-9 ");
@@ -46,11 +57,30 @@ public class TicTacToe {
 			}
 			showBoard();
 		}
+		public static void desiredMove() {
+			System.out.println("Enter the index where you want to make your move ");
+			int userInput = sc.nextInt();
+			if(userMove(userInput)) {
+				board[userInput] =player;
+			}
+			else {
+				System.out.println("Cell already occupied!. Choose a different cell");
+			}
+		}
+		public static boolean isEmpty() {
+			if(board[playLocation]==' ') {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
 	public static void main(String[] args) {
 		System.out.println("Welocme to Tic Tac Toe Game ");
 		createBoard();
 		getPlayerChoice();
 		showBoard();
 		userMove();
+		desiredMove();
 	}
 }
