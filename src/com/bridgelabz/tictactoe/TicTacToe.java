@@ -29,7 +29,8 @@ public class TicTacToe {
 		System.out.println("You have selected: "+player);
 		System.out.println("Computer's choice is: "+computer);
 	}
-	static void showBoard() {
+	public static void showBoard() {
+		System.out.println();
 		System.out.println(" "+board[1]+" | "+board[2]+" | "+board[3]+" | ");
 		System.out.println("-----------------");
 		System.out.println(" "+board[4]+" | "+board[5]+" | "+board[6]+" | ");
@@ -51,8 +52,6 @@ public class TicTacToe {
 		if(board[userInput]!='X' && board[userInput]!='O'){
 			System.out.println("Cell is free");
 		}
-		System.out.println("Enter Location 1-9 to Make Move");
-		playLocation = sc.nextInt();
 		if(playLocation<10 && playLocation>0) {
 			board[playLocation] = player;
 		}
@@ -60,7 +59,6 @@ public class TicTacToe {
 			System.out.println("Invalid Choice");
 			System.out.println("Cell is not free.please choose a different index");
 		}
-		//			showBoard();
 		System.out.println("Player is Playing");
 		System.out.println("Enter Location 1-9 to Make Move");
 		while(true) {
@@ -105,14 +103,6 @@ public class TicTacToe {
 	public static boolean isEmpty(int location) {
 		return board[location] ==' ';
 	}
-	//		public static boolean isEmpty() {
-	//			if(board[playLocation]==' ') {
-	//				return false;
-	//			}
-	//			else {
-	//				return true;
-	//			}
-	//		}
 	public static void checkToss() {
 		int playerFirst = 1;
 		double tossResult = Math.floor(Math.random()*10)%2;
